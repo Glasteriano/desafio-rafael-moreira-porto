@@ -1,4 +1,5 @@
 import { itemExtra } from "./utils/verificarItemExtra.js";
+import { itemValido } from "./utils/verificarItemValido.js";
 import { itemZerado } from "./utils/verificarItemZerado.js";
 import { pagamentoAceito } from "./utils/verificarPagamento.js";
 //=============================================================================
@@ -9,6 +10,7 @@ class CaixaDaLanchonete {
         const pagamentoValido = pagamentoAceito(metodoDePagamento);
         const itemExtraValido = itemExtra(itens);
         const zeroItens = itemZerado(itens);
+        const itemNoCardapio = itemValido(itens);
         //----------------------------------------------------------------
 
         if (!pagamentoValido) {
@@ -26,6 +28,10 @@ class CaixaDaLanchonete {
         if (zeroItens) {
             return "Quantidade inválida!"
         };
+
+        if (!itemNoCardapio) {
+            return "Item inválido!"
+        }
         //----------------------------------------------------------------
 
         return "";
@@ -35,4 +41,3 @@ class CaixaDaLanchonete {
 //=============================================================================
 
 export { CaixaDaLanchonete };
-
