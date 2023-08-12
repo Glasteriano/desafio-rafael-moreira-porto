@@ -39,7 +39,7 @@ class CaixaDaLanchonete {
         };
 
         if (!itemExtraValido) {
-            return "Item extra não pode ser pedido sem o principal"
+            return "Item extra não pode ser pedido sem o principal";
         };
         //----------------------------------------------------------------
 
